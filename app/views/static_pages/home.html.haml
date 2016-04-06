@@ -1,11 +1,14 @@
-%h1.well
-  Haml is working!
-%p
-  No more closing braces :). But
-  %strong
-    bolding
-  a word sucks.
+%h1
+  Popcorn Pal
 
-- if current_user and current_user.has_role? :admin
-  %h1
-    You very special
+
+- if current_user
+  %h2
+    Welcome #{current_user.email}!
+  %p
+    #{link_to "Log out", { controller: "devise/sessions", action: "destroy" },  method: :delete }
+- else
+  %p
+    #{link_to "Log in", { controller: "devise/sessions", action: "new" }}
+  %p
+    #{link_to "Sign up", { controller: "devise/registrations", action: "new" }}
