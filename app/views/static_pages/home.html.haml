@@ -1,10 +1,4 @@
-%h1
-  Popcorn Pal
-
-
 - if current_user
-  %h2
-    Welcome #{current_user.email}!
   %button
     #{ link_to "Log out", destroy_user_session_path,  method: :delete }
 - else

@@ -1,0 +1,5 @@
+%header
+    %div.container
+        #{ link_to "PopcornPal", root_path }
+        - if current_user
+            | Welcome #{ current_user.email }
