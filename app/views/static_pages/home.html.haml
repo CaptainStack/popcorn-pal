@@ -5,10 +5,10 @@
 - if current_user
   %h2
     Welcome #{current_user.email}!
-  %p
-    #{link_to "Log out", { controller: "devise/sessions", action: "destroy" },  method: :delete }
+  %button
+    #{ link_to "Log out", destroy_user_session_path,  method: :delete }
 - else
-  %p
-    #{link_to "Log in", { controller: "devise/sessions", action: "new" }}
-  %p
-    #{link_to "Sign up", { controller: "devise/registrations", action: "new" }}
+  %button
+    #{ link_to "Log in", new_user_session_path }
+  %button
+    #{ link_to "Sign up", new_user_registration_path }
