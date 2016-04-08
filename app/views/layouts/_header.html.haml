@@ -1,11 +1,19 @@
 %header.navbar
     %div.container
         #{ link_to "PopcornPal", root_path }
-        %div.nav.navbar-nav.navbar-right
-            %img.header-profile-pic{src:"#{ gravatar_url current_user }"}
-            - if current_user
-                Welcome #{ current_user.email }
-                | #{ link_to "Log out", destroy_user_session_path,  method: :delete }
-            - else
-                #{ link_to "Log in", new_user_session_path }
-                | #{ link_to "Sign up", new_user_registration_path }
+        %ul.nav.navbar-nav.navbar-right
+            %li.dropdown
+                %a.dropdown-toggle{ href: '#tab2', data: { toggle: 'dropdown' } }
+                    %img.header-profile-pic{src:"#{ gravatar_url current_user }"}
+                    %span.caret
+                %ul.dropdown-menu
+                    - if current_user
+                        %li
+                            #{ link_to "Edit profile", { controller: "devise/registrations", action: "edit" } }
+                        %li
+                            #{ link_to "Log out", destroy_user_session_path,  method: :delete }
+                    - else
+                        %li
+                            #{ link_to "Log in", new_user_session_path }
+                        %li
+                            #{ link_to "Sign up", new_user_registration_path }
