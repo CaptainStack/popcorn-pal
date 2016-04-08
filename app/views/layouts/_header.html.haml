@@ -2,6 +2,7 @@
     %div.container
         #{ link_to "PopcornPal", root_path }
         %div.nav.navbar-nav.navbar-right
+            %img.header-profile-pic{src:"#{ gravatar_url current_user }"}
             - if current_user
                 Welcome #{ current_user.email }
                 | #{ link_to "Log out", destroy_user_session_path,  method: :delete }
