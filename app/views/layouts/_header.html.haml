@@ -6,7 +6,6 @@
         %li.dropdown
           %a.dropdown-toggle{ href: '#tab2', data: { toggle: 'dropdown' } }
             %img.header-profile-pic{src:"#{ gravatar_url current_user }"}
-            %span.caret
           %ul.dropdown-menu
             %li
               #{ link_to "Edit profile", { controller: "devise/registrations", action: "edit" } }
