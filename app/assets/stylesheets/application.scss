@@ -13,9 +13,16 @@
  *= require_tree .
  *= require_self
  */
+
+@import "bootstrap-sprockets";
 @import "bootstrap";
 
 .navbar-nav > li > a {
   padding-top: 10px;
   padding-bottom: 9px;
+}
+
+.glyphicon {
+  height: 26px;
+  line-height: 26px;
 }

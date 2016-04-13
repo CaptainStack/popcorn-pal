@@ -1,7 +1,12 @@
 %header.navbar
   %div.container
-    #{ link_to "PopcornPal", root_path }
+    #{ link_to "PopcornPal", root_path, class: "navbar-brand" }
     - if current_user
+      %ul.nav.navbar-nav.navbar-form
+        %li.form-group.has-feedback
+          %input.form.typeahead{ type:"text", placeholder:"Search movies" }
+          %span.glyphicon.form-control-feedback.typeahead-icon.glyphicon-search
+          %span.glyphicon.form-control-feedback.typeahead-spinner.glyphicon-refresh{ style:"display: none" }
       %ul.nav.navbar-nav.navbar-right
         %li.dropdown
           %a.dropdown-toggle{ href: '#tab2', data: { toggle: 'dropdown' } }
@@ -15,3 +20,5 @@
       %div.nav.navbar-nav.navbar-right
         #{ link_to "Log in", new_user_session_path }
         | #{ link_to "Sign up", new_user_registration_path }
+
+%script{src:"/assets/movie-search-bar.js", type:'text/javascript'}
