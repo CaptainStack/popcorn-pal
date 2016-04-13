@@ -14,6 +14,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'pundit'
 gem 'rolify'
+gem 'rails_serve_static_assets'
+gem 'rails_stdout_logging'
 
 group :development, :test do
   gem 'sqlite3'
