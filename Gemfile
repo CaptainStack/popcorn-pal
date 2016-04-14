@@ -16,6 +16,7 @@ gem 'pundit'
 gem 'rolify'
 gem 'rails_serve_static_assets'
 gem 'rails_stdout_logging'
+gem 'rake'
 
 group :development, :test do
   gem 'sqlite3'
