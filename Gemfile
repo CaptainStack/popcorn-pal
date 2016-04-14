@@ -16,6 +16,7 @@ gem 'pundit'
 gem 'rolify'
 gem 'rails_serve_static_assets'
 gem 'rails_stdout_logging'
+gem 'rake'
 
 group :development, :test do
   gem 'sqlite3'
@@ -26,5 +27,5 @@ end
 
 group :production do
   gem 'pg',             '0.17.1'
-  gem 'rails_12factor', '0.0.2'
+  gem 'rails_12factor'
 end
