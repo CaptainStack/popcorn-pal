@@ -1,3 +1,5 @@
+alert 'andre'
+
 movies = new Bloodhound {
   datumTokenizer: (datum) -> Bloodhound.tikenizers.whitespace(datum.value),
   queryTokenizer: Bloodhound.tokenizers.whitespace,
