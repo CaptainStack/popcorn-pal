@@ -1,3 +1,5 @@
+$search-box-length: 450px;
+
 header {
   background-color: #f5f5f5;
   margin-bottom: 20px;
@@ -14,4 +16,44 @@ header {
   .navbar-nav > li > a {
     padding: 0px;
   }
+}
+
+.bootstrap-override .navbar-nav > li > a {
+  padding-top: 10px;
+  padding-bottom: 9px;
+}
+
+// Search box styles
+
+#header-search .glyphicon {
+  height: 26px;
+  line-height: 26px;
+}
+
+.movie-thumbnail {
+  height: 54px;
+  width: 40px;
+  margin-right: 10px;
+}
+
+.typeahead {
+  width: $search-box-length;
+}
+
+.bootstrap-override .tt-suggestion {
+  background-color: white;
+  list-style-type: none;
+  width: $search-box-length;
+  height: 63px;
+  padding: 4px;
+  border-bottom: 1px solid lightgrey;
+  border-left: 1px solid lightgrey;
+  border-right: 1px solid lightgrey;
+  a {
+    text-decoration: none;
+  }
+}
+
+.bootstrap-override .tt-suggestion:hover, .bootstrap-override .tt-cursor {
+  background-color: ghostwhite;
 }
