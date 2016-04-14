@@ -1,7 +1,7 @@
-%header.navbar
-  %div.container
-    #{ link_to "PopcornPal", root_path, class: "navbar-brand" }
-    - if current_user
+- if current_user
+  %header.navbar{style:'height: 50px'}
+    %div.container
+      #{ link_to "PopcornPal", root_path, class: "navbar-brand" }
       %ul.nav.navbar-nav.navbar-form#header-search
         %li.form-group.has-feedback
           %input.form.typeahead{ type:"text", placeholder:"Search movies" }
@@ -16,9 +16,22 @@
               #{ link_to "Edit profile", { controller: "devise/registrations", action: "edit" } }
             %li
               #{ link_to "Log out", destroy_user_session_path,  method: :delete }
-    - else
-      %ul.nav.navbar-nav.navbar-right
-        %li
-          #{ link_to "Log in", new_user_session_path }
-        %li
-          #{ link_to "Sign up", new_user_registration_path }
+- else
+  %header.navbar{style:'height: 60px'}
+    %div.container
+      #{ link_to "PopcornPal", root_path, class: "navbar-brand" }
+      = form_tag session_path(:user), class: 'navbar-form navbar-login' do
+        %ul.nav.navbar-nav.navbar-right
+          %li
+            = text_field_tag 'user[email]', nil,  placeholder: 'Email address'
+            %br
+            %span.navbar-subtitle
+              = check_box_tag 'user[remember_me]'
+              = label_tag 'user[remember_me]', 'Remember me'
+          %li
+            = password_field_tag 'user[password]', nil, placeholder: 'Password'
+            %br
+            %span.navbar-subtitle
+              = link_to "Forgot it?", new_password_path(:user)
+          %li
+            %button Log in
