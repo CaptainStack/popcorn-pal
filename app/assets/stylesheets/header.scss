@@ -57,3 +57,19 @@ header {
 .bootstrap-override .tt-suggestion:hover, .bootstrap-override .tt-cursor {
   background-color: ghostwhite;
 }
+
+// Inline login form
+
+.navbar-subtitle {
+  font-size: 10px;
+  text-align: right;
+  font-family: sans-serif;
+}
+.navbar-form label {
+  vertical-align: middle;
+}
+.navbar-form .navbar-login {
+  input[type=text], input[type=password] {
+    width: 120px;
+  }
+}

@@ -1,9 +1,19 @@
-%div.row.jumbotron.center
-  %h1
-    Welcome to PopcornPal
-  %h2
-    A social network for movie lovers.
-  #{ link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-primary" }
+%div.row
+  %div.center.col-md-9.well
+    %h1
+      It's movie night.
+    %p
+      Join the classest filmgoing community on the whole damn internet.
+    #{ link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-primary" }
+  %div.col-md-3
+    %h3
+      Create an account:
+    = form_tag user_registration_path, class:'landing-signup-form' do
+      = text_field_tag 'user[email]', nil,  placeholder: 'Email address'
+      = password_field_tag 'user[password]', nil,  placeholder: 'Password'
+      = password_field_tag 'user[password_confirmation]', nil,  placeholder: 'Password confirmation'
+      %br
+      %button.btn.btn-primary Sign up
 %div.row.center
   %div.col-md-4
     %h3
