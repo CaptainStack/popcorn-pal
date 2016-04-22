@@ -3,13 +3,14 @@ movies = new Bloodhound {
   queryTokenizer: Bloodhound.tokenizers.whitespace,
   remote: {
     wildcard: '%QUERY',
-    url: 'https://api.themoviedb.org/3/search/movie?api_key=ca948b0235f85fbc7a64d9beae013818&query=%QUERY',
+    url: '/movies/tmdb_query/%QUERY',
     transform: (movies) ->
-      $.map(movies["results"], (movie) ->
+      $.map(movies, (movie) ->
         {
+          tmdb_id: movie["id"],
           title: movie["title"],
-          release_year: new Date(movie["release_date"]),
-          poster_url: movie["poster_path"]
+          release_date: new Date(movie["release_date"]),
+          poster_path: movie["poster_path"]
         }
       )
   }
@@ -21,25 +22,27 @@ movies.initialize()
 # Instantiate the Typeahead UI
 
 $('.typeahead').typeahead({
-    hint: false
+    hint: false,
+    highlight: true
   },
   {
     name: 'movies',
     display: 'title',
-    source: movies.ttAdapter(),
+    source: movies.ttAdapter()
     minLength: 1,
     limit: 4,
     templates: {
       notFound: '<div>No Results Found</div>',
       suggestion: (movies) ->
-        "<li><img class='movie-thumbnail' src=\'https://image.tmdb.org/t/p/w500#{ movies.poster_url }\'></img><a><strong>#{ movies.title }</strong> — (#{ movies.release_year.getFullYear() || "N/A" })</a></li>"
+        "<li><img class='movie-thumbnail' src=\'https://image.tmdb.org/t/p/w500#{ movies.poster_path }\'></img><a><strong>#{ movies.title }</strong> — (#{ movies.release_date.getFullYear() || "N/A" })</a></li>"
     }
   }
 ).on('typeahead:asyncrequest', ->
   $('.typeahead-spinner').show()
   $('.typeahead-icon').hide()
-)
-.on('typeahead:asynccancel typeahead:asyncreceive', ->
+).on('typeahead:asynccancel typeahead:asyncreceive', ->
   $('.typeahead-spinner').hide()
   $('.typeahead-icon').show()
+).on('typeahead:select', (ev, suggestion) ->
+  window.location.replace "/movies/#{ suggestion['tmdb_id'] }"
 )
