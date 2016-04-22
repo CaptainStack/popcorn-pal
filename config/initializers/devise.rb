@@ -240,7 +240,7 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   config.omniauth :facebook, '226856591014765', ENV['OMNIAUTH_FACEBOOK_SECRET'], 
-    callback_url: "https://popcorn-pal-captainstack.c9users.io/users/auth/facebook/callback",
+    callback_url: "#{Rails.application.secrets.root_url}/users/auth/facebook/callback",
     :client_options => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}
   
   # ==> Warden configuration
