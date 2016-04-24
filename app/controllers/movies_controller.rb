@@ -4,13 +4,10 @@ class MoviesController < ApplicationController
   end
   
   def show
-    @movie = {}
-    Tmdb::Api.key(ENV['TMDB_API_KEY'])
-    movie = Tmdb::Movie.detail(params[:id])
-    @movie["title"] = movie["title"]
-    @movie["id"] = movie["tmdb_id"]
-    @movie["release_date"] = Date.parse(movie["release_date"])
-    @movie["poster_path"] = movie["poster_path"]
+    tmdb_result = Tmdb::Movie.detail(params[:id])
+    movie = {id: tmdb_result['id'], title: tmdb_result['title'], 
+      release_date: tmdb_result['release_date'], poster_path: tmdb_result['poster_path']}
+    @movie = Movie.new(movie)
     render 'show'
   end
   
