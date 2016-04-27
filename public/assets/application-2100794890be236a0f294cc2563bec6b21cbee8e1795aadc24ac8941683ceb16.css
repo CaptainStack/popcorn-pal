@@ -1,11 +1,46 @@
-/* line 1, /home/ubuntu/workspace/PopcornPal/app/assets/stylesheets/header.scss */
+/* line 1, /home/ubuntu/workspace/PopcornPal/app/assets/stylesheets/footer.scss */
+.powered-by {
+  height: 40px;
+}
+
+/* line 4, /home/ubuntu/workspace/PopcornPal/app/assets/stylesheets/footer.scss */
+.site-footer-links {
+  margin: 0;
+  padding: 0px;
+  list-style: none;
+  display: inline;
+}
+
+/* line 10, /home/ubuntu/workspace/PopcornPal/app/assets/stylesheets/footer.scss */
+.site-footer-links li {
+  display: inline-block;
+  line-height: 16px;
+}
+
+/* line 14, /home/ubuntu/workspace/PopcornPal/app/assets/stylesheets/footer.scss */
+.site-footer-links li + li {
+  margin-left: 10px;
+}
+
+/* line 17, /home/ubuntu/workspace/PopcornPal/app/assets/stylesheets/footer.scss */
+.site-footer {
+  position: relative;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top: 20px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #767676;
+  border-top: 1px solid #eee;
+}
+/* line 3, /home/ubuntu/workspace/PopcornPal/app/assets/stylesheets/header.scss */
 header {
   background-color: #f5f5f5;
   margin-bottom: 20px;
   height: 50px;
 }
 
-/* line 7, /home/ubuntu/workspace/PopcornPal/app/assets/stylesheets/header.scss */
+/* line 9, /home/ubuntu/workspace/PopcornPal/app/assets/stylesheets/header.scss */
 .header-profile-pic {
   height: 30px;
   width: 30px;
@@ -13,35 +48,80 @@ header {
 }
 
 @media (min-width: 768px) {
-  /* line 14, /home/ubuntu/workspace/PopcornPal/app/assets/stylesheets/header.scss */
+  /* line 16, /home/ubuntu/workspace/PopcornPal/app/assets/stylesheets/header.scss */
   .navbar-nav > li > a {
     padding: 0px;
   }
 }
-/* line 19, /home/ubuntu/workspace/PopcornPal/app/assets/stylesheets/header.scss */
+/* line 21, /home/ubuntu/workspace/PopcornPal/app/assets/stylesheets/header.scss */
+.bootstrap-override .navbar-nav > li > a {
+  padding-top: 10px;
+  padding-bottom: 9px;
+}
+
+/* line 28, /home/ubuntu/workspace/PopcornPal/app/assets/stylesheets/header.scss */
+#header-search .glyphicon {
+  height: 26px;
+  line-height: 26px;
+}
+
+/* line 33, /home/ubuntu/workspace/PopcornPal/app/assets/stylesheets/header.scss */
 .movie-thumbnail {
   height: 54px;
   width: 40px;
   margin-right: 10px;
 }
 
-/* line 25, /home/ubuntu/workspace/PopcornPal/app/assets/stylesheets/header.scss */
-.tt-cursor {
-  background-color: lightgrey;
-}
-
-/* line 29, /home/ubuntu/workspace/PopcornPal/app/assets/stylesheets/header.scss */
-.tt-suggestion:hover {
-  background-color: lightgrey;
-}
-
-/* line 33, /home/ubuntu/workspace/PopcornPal/app/assets/stylesheets/header.scss */
+/* line 39, /home/ubuntu/workspace/PopcornPal/app/assets/stylesheets/header.scss */
 .typeahead {
-  width: 400px;
+  width: 450px;
 }
-/* line 1, /home/ubuntu/workspace/PopcornPal/app/assets/stylesheets/home.scss */
-.activity-feed {
-  border-right: 1px solid #eeeeee;
+
+/* line 43, /home/ubuntu/workspace/PopcornPal/app/assets/stylesheets/header.scss */
+.bootstrap-override .tt-suggestion {
+  background-color: white;
+  list-style-type: none;
+  width: 450px;
+  height: 63px;
+  padding: 4px;
+  border-bottom: 1px solid lightgrey;
+  border-left: 1px solid lightgrey;
+  border-right: 1px solid lightgrey;
+}
+/* line 52, /home/ubuntu/workspace/PopcornPal/app/assets/stylesheets/header.scss */
+.bootstrap-override .tt-suggestion a {
+  text-decoration: none;
+}
+
+/* line 57, /home/ubuntu/workspace/PopcornPal/app/assets/stylesheets/header.scss */
+.bootstrap-override .tt-suggestion:hover, .bootstrap-override .tt-cursor {
+  background-color: ghostwhite;
+}
+
+/* line 63, /home/ubuntu/workspace/PopcornPal/app/assets/stylesheets/header.scss */
+.navbar-subtitle {
+  font-size: 10px;
+  text-align: right;
+  font-family: sans-serif;
+}
+
+/* line 68, /home/ubuntu/workspace/PopcornPal/app/assets/stylesheets/header.scss */
+.navbar-form label {
+  vertical-align: middle;
+}
+
+/* line 72, /home/ubuntu/workspace/PopcornPal/app/assets/stylesheets/header.scss */
+.navbar-form .navbar-login input[type=text], .navbar-form .navbar-login input[type=password] {
+  width: 120px;
+}
+/* line 2, /home/ubuntu/workspace/PopcornPal/app/assets/stylesheets/home.scss */
+.landing-signup-form input {
+  margin-bottom: 6px;
+}
+/* line 1, /home/ubuntu/workspace/PopcornPal/app/assets/stylesheets/movie.scss */
+.row img {
+  width: 100%;
+  margin-bottom: 10px;
 }
 @charset "UTF-8";
 /*
@@ -8852,29 +8932,20 @@ button.close {
   }
 }
 /* line 21, /home/ubuntu/workspace/PopcornPal/app/assets/stylesheets/application.scss */
-.navbar-nav > li > a {
-  padding-top: 10px;
-  padding-bottom: 9px;
+.right {
+  float: right !important;
 }
 
-/* line 26, /home/ubuntu/workspace/PopcornPal/app/assets/stylesheets/application.scss */
-.glyphicon {
-  height: 26px;
-  line-height: 26px;
+/* line 25, /home/ubuntu/workspace/PopcornPal/app/assets/stylesheets/application.scss */
+.center {
+  text-align: center;
+}
+/* line 27, /home/ubuntu/workspace/PopcornPal/app/assets/stylesheets/application.scss */
+.center h1 {
+  margin-bottom: 10px;
 }
 
-/* line 31, /home/ubuntu/workspace/PopcornPal/app/assets/stylesheets/application.scss */
-.tt-suggestion {
-  background-color: white;
-  list-style-type: none;
-  width: 400px;
-  height: 63px;
-  padding: 4px;
-  border-bottom: 1px solid lightgrey;
-  border-left: 1px solid lightgrey;
-  border-right: 1px solid lightgrey;
-}
-/* line 40, /home/ubuntu/workspace/PopcornPal/app/assets/stylesheets/application.scss */
-.tt-suggestion a {
-  text-decoration: none;
+/* line 32, /home/ubuntu/workspace/PopcornPal/app/assets/stylesheets/application.scss */
+.center-column {
+  border-right: 1px solid #eeeeee;
 }
