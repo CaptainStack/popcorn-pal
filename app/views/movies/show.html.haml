@@ -1,6 +1,6 @@
 %div
   %h1
-    = "#{@movie.title} (#{Date.parse(@movie.release_date).year})"
+    = "#{@movie.title} (#{@movie.release_date.year})"
   %img{src:"https://image.tmdb.org/t/p/w500#{@movie.poster_path}", style:"width: 115px"}
 %br
 %div
