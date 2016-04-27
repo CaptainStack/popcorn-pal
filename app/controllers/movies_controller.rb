@@ -12,6 +12,7 @@ class MoviesController < ApplicationController
   end
   
   def show
+    @credits = Tmdb::Movie.credits(params[:id])
     @movie = find_or_create_by_id(params[:id])
   end
   
