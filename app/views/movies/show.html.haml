@@ -5,8 +5,18 @@
 %div.row
   %div.col-md-2.center
     %img{src:"https://image.tmdb.org/t/p/w500#{@movie.poster_path}"}
-    %button.btn.btn-primary
-      Add to watchlist
+    - if !current_user.watchlist.find_by(movie_id: @movie.id)
+      = form_for :user_movie, url: {action: "update", controller: "user_movies"}, :html => {method: "PATCH"} do |f|
+        = f.hidden_field :user_id, value: current_user.id
+        = f.hidden_field :movie_id, value: @movie.id
+        = f.hidden_field :on_watchlist, value: true
+        = f.submit "Save to watchlist", class: "btn btn-primary"
+    - else
+      = form_for :user_movie, url: {action: "update", controller: "user_movies"}, :html => {method: "PATCH"} do |f|
+        = f.hidden_field :user_id, value: current_user.id
+        = f.hidden_field :movie_id, value: @movie.id
+        = f.hidden_field :on_watchlist, value: false
+        = f.submit "Remove from watchlist", class: "btn btn-primary"
   %div.col-md-7.center-column
     %h1
       = "#{@movie.title} (#{@movie.release_date.year})"
@@ -23,7 +33,4 @@
     %p
       = @movie.overview
   %div.col-md-3
-    %h3
-      News ticker
-    %p
-      News ticker coming soon
+    = render 'layouts/watchlist_sidebar'
