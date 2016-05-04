@@ -4,9 +4,4 @@
   - current_user.watchlist.each do | list_item |
     %li
       = link_to list_item.movie.title, list_item.movie
-      = form_for :user_movie, url: "/users/#{current_user.id}/watchlist", html: { method: "PATCH", class: 'inline-form'} do |f|
-        = f.hidden_field :user_id, value: current_user.id
-        = f.hidden_field :movie_id, value: list_item.movie.id
-        = f.hidden_field :on_watchlist, value: false
-        %a
-          = f.submit "[remove]", class: 'no-button'
+      = link_to '[remove]', "/users/#{current_user.id}/watchlist/#{@movie.id}", method: :delete
