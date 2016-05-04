@@ -4,4 +4,4 @@
   - current_user.watchlist.each do | list_item |
     %li
       = link_to list_item.movie.title, list_item.movie
-      = link_to '[remove]', "/users/#{current_user.id}/watchlist/#{@movie.id}", method: :delete
+      = link_to '[remove]', "/users/#{current_user.id}/watchlist/#{list_item.movie.id}", method: :delete
