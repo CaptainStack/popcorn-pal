@@ -5,25 +5,22 @@
 %div.row
   %div.col-md-2.center
     %img{src:"https://image.tmdb.org/t/p/w500#{@movie.poster_path}"}
-    %button.btn.btn-primary
-      Add to watchlist
+    - if !current_user.watchlist.find_by(movie_id: @movie.id)
+      = button_to 'Add to watchlist', "/users/#{current_user.id}/watchlist/#{@movie.id}", method: :post, class: 'btn btn-primary'
+    - else
+      = button_to 'Remove from watchlist', "/users/#{current_user.id}/watchlist/#{@movie.id}", method: :delete, class: 'btn btn-primary'
   %div.col-md-7.center-column
     %h1
       = "#{@movie.title} (#{@movie.release_date.year})"
     %em
       %p
         Directed by:
-        - directors.each do |director|
-          = director['name']
+        = directors.map { |director| director['name'] }.join(', ')
     %em
       %p
         Starring:
-        - actors.each do |actor|
-          = actor['name']
+        = actors.map { |actor| actor['name'] }.join(', ')
     %p
       = @movie.overview
   %div.col-md-3
-    %h3
-      News ticker
-    %p
-      News ticker coming soon
+    = render 'layouts/watchlist_sidebar'
