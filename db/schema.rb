@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160426190816) do
+ActiveRecord::Schema.define(version: 20160501035703) do
 
   create_table "movies", force: :cascade do |t|
     t.string   "imdb_id"
@@ -36,6 +36,14 @@ ActiveRecord::Schema.define(version: 20160426190816) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], name: "index_roles_on_name"
+
+  create_table "user_movies", force: :cascade do |t|
+    t.integer  "user_id",                      null: false
+    t.integer  "movie_id",                     null: false
+    t.boolean  "on_watchlist", default: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
