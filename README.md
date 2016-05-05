@@ -23,3 +23,6 @@ Version 1.0
 * Application will be tested with the following:
   * Unit tests
   * Integration tests
+
+
+[![Join the chat at https://gitter.im/CaptainStack/PopcornPal](https://badges.gitter.im/CaptainStack/PopcornPal.svg)](https://gitter.im/CaptainStack/PopcornPal?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
