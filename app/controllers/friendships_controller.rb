@@ -18,11 +18,11 @@ class FriendshipsController < ApplicationController
   private
     def friendship_params
       params[:friendship] = params;
-      params.require(:friendship).permit(:user_id, :friend_id, :is_pending)
+      params.require(:friendship).permit(:friend_id, :is_pending)
     end
     
     def correct_user
-      @friendship = current_user.friends.find_by(user_id: params[:user_id], friend_id: params[:friend_id])
+      @friendship = current_user.friends.find_by(user_id: current_user.id, friend_id: params[:friend_id])
       redirect_to root_url if @friendship.nil?
     end
 end
