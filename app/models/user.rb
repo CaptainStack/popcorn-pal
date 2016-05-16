@@ -8,6 +8,15 @@ class User < ActiveRecord::Base
 
   has_many :user_movies
   
+  def friends
+    # Update when migrated to Rails 5 to use '.or.where()'
+    Friendship.where("user_id = ? or friend_id = ?", self.id, self.id)
+  end
+  
+  def pending_friend_requests
+    self.friends.select { |friend| friend.is_pending }
+  end
+  
   def watchlist
     self.user_movies.where(on_watchlist: true)
   end

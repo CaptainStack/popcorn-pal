@@ -13,5 +13,9 @@ Rails.application.routes.draw do
   delete 'users/:user_id/watchlist/:movie_id' => 'user_movies#remove_from_watchlist'
   post 'users/:user_id/watchlist/:movie_id' => 'user_movies#add_to_watchlist'
   
+  # friendships
+  post 'users/:user_id/friends/request/:friend_id' => 'friendships#create'
+  delete 'users/:user_id/friends/request/:friend_id' => 'friendships#destroy'
+  
   root 'home#index'
 end
