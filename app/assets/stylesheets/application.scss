@@ -29,7 +29,11 @@
 }
 
 .center-column {
-  border-right: 1px solid #eeeeee;
+  
+}
+
+.right-column {
+  border-left: 1px solid #eeeeee;
 }
 
 .no-button {
@@ -40,3 +44,23 @@
 .inline-form {
   display: inline;
 }
+
+.friends-list {
+  li img {
+   width: 50px;
+   height: 50px;
+  }
+}
+
+.unstyled-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: inline;
+  color: #337ab7;
+  padding: 0px;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+

@@ -1,0 +1,7 @@
+%h3
+  All users
+%ul
+  - User.all.each do |user|
+    %li
+      = link_to user.email, user
+      = button_to '[+]', "/users/friends/request/#{user.id}", method: 'POST', class: 'unstyled-button', form_class: 'unstyled-button'
