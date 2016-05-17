@@ -1,0 +1,17 @@
+%div.row
+  %div.col-md-9.center-column
+    %h1
+      = @user.email
+    %div  
+      %img{src:"#{ gravatar_url @user }"}
+      - if current_user.is_friends_with? @user
+        %strong 
+          You are friends
+        |
+        = link_to 'Delete Friend', "/users/friends/request/#{@user.id}", method: 'DELETE'
+      - elsif current_user.is_pending_friendship_with? @user
+        = "Your friendship is pending" 
+      - else
+        = button_to 'Add Friend', "/users/friends/request/#{@user.id}", method: 'POST'
+  %div.col-md-3
+    = render 'layouts/watchlist_sidebar'

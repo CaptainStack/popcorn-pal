@@ -3,7 +3,7 @@
   actors = @credits['cast']
 
 %div.row
-  %div.col-md-2.center
+  %div.col-md-2.center.movie-badge
     %img{src:"https://image.tmdb.org/t/p/w500#{@movie.poster_path}"}
     - if !current_user.watchlist.find_by(movie_id: @movie.id)
       = button_to 'Add to watchlist', "/users/#{current_user.id}/watchlist/#{@movie.id}", method: :post, class: 'btn btn-primary'
@@ -22,5 +22,6 @@
         = actors.map { |actor| actor['name'] }.join(', ')
     %p
       = @movie.overview
-  %div.col-md-3
+  %div.col-md-3.right-column
     = render 'layouts/watchlist_sidebar'
+    = render 'layouts/friendship_sidebar'

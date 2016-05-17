@@ -1,0 +1,27 @@
+- if !current_user.incoming_friend_requests.empty?
+  %h3
+    Friend Requests
+  %ul
+    - current_user.incoming_friend_requests.each do |friendship|
+      %li
+        = link_to friendship.requester.email, friendship.requester
+        = link_to '[+]', "/users/friends/accept/#{friendship.friend(current_user).id}", method: 'PATCH'
+        = link_to '[x]', "/users/friends/request/#{friendship.friend(current_user).id}", method: 'DELETE'
+
+- if !current_user.outgoing_friend_requests.empty?
+  %h3
+    Outgoing Requests
+  %ul
+    - current_user.outgoing_friend_requests.each do |friendship|
+      %li
+        = link_to friendship.recipient.email, friendship.recipient
+        = link_to '[x]', "/users/friends/request/#{friendship.recipient.id}", method: 'DELETE'
+
+- if !current_user.friendships.empty?
+  %h3
+    Friends
+  %ul
+    - current_user.friendships.each do |friendship|
+      %li
+        = link_to current_user.friend(friendship).email, current_user.friend(friendship)
+        = link_to '[x]', "/users/friends/request/#{current_user.friend(friendship).id}", method: 'DELETE'
