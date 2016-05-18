@@ -20,10 +20,13 @@ gem 'rails_stdout_logging'
 gem 'rake'
 gem 'themoviedb'
 
+group :development do
+  gem 'web-console', '~> 2.0'
+end
+
 group :development, :test do
   gem 'sqlite3'
   gem 'byebug'
-  gem 'web-console', '~> 2.0'
   gem 'spring'
 end
 
