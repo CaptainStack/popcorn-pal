@@ -1,7 +1,7 @@
 - if current_user
   %header.navbar{style:'height: 50px'}
     %div.container
-      #{ link_to "PopcornPal", root_path, class: "navbar-brand" }
+      = link_to "PopcornPal", root_path, class: "navbar-brand"
       %ul.nav.navbar-nav.navbar-form#header-search
         %li.form-group.has-feedback
           %input.form.typeahead{ type:"text", placeholder:"Search movies" }
@@ -13,13 +13,13 @@
             %img.header-profile-pic{src:"#{ gravatar_url current_user }"}
           %ul.dropdown-menu
             %li
-              #{ link_to "Edit profile", { controller: "devise/registrations", action: "edit" } }
+              = link_to "Edit profile", { controller: "devise/registrations", action: "edit" }
             %li
-              #{ link_to "Log out", destroy_user_session_path,  method: :delete }
+              = link_to "Log out", destroy_user_session_path,  method: :delete
 - else
   %header.navbar{style:'height: 60px'}
     %div.container
-      #{ link_to "PopcornPal", root_path, class: "navbar-brand" }
+      = link_to "PopcornPal", root_path, class: "navbar-brand"
       = form_tag session_path(:user), class: 'navbar-form navbar-login' do
         %ul.nav.navbar-nav.navbar-right
           %li
