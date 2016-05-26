@@ -12,9 +12,9 @@ default: &default
 development:
   <<: *default
   database: popcornpal_development
-    # The inclusion of this template was to solve an encoding issue. 
-    # Error and solution documented here https://gist.github.com/amolkhanorkar/8706915
-    template: template0
+  # The inclusion of this template was to solve an encoding issue. 
+  # Error and solution documented here https://gist.github.com/amolkhanorkar/8706915
+  template: template0
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
