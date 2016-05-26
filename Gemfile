@@ -19,18 +19,17 @@ gem 'rails_serve_static_assets'
 gem 'rails_stdout_logging'
 gem 'rake'
 gem 'themoviedb'
-
+gem 'pg'
+  
 group :development do
   gem 'web-console', '~> 2.0'
 end
 
 group :development, :test do
-  gem 'sqlite3'
   gem 'byebug'
   gem 'spring'
 end
 
 group :production do
-  gem 'pg',             '0.17.1'
   gem 'rails_12factor'
 end
