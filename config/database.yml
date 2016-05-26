@@ -5,21 +5,26 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: sqlite3
+  adapter: postgresql
   pool: 5
   timeout: 5000
 
 development:
   <<: *default
-  database: db/development.sqlite3
+  database: popcornpal_development
+  # The inclusion of this template was to solve an encoding issue. 
+  # Error and solution documented here https://gist.github.com/amolkhanorkar/8706915
+  template: template0
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: db/test.sqlite3
+  database: popcornpal_test
+  template: template0
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  database: popcornpal_production
+  template: template0
