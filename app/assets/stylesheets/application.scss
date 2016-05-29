@@ -17,6 +17,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+* {
+  background-color: orange;
+}
+
 .right {
   float: right !important;
 }
@@ -34,6 +38,9 @@
 
 .right-column {
   border-left: 1px solid #eeeeee;
+  h3 {
+    color: blue;
+  }
 }
 
 .no-button {
