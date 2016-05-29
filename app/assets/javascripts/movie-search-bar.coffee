@@ -30,7 +30,7 @@ $('.typeahead').typeahead({
     display: 'title',
     source: movies.ttAdapter()
     minLength: 1,
-    limit: 5,
+    limit: 4,
     templates: {
       notFound: '<div>No Results Found</div>',
       suggestion: (movies) ->
