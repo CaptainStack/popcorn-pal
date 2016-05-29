@@ -5,6 +5,10 @@
 %div.row
   %div.col-md-2.center.movie-badge
     %img{src:"https://image.tmdb.org/t/p/w500#{@movie.poster_path}"}
+    - if current_user.user_movies.find_by(movie_id: @movie.id).seen
+      = "You have seen this movie"
+    - else
+      = "You have not seen this movie"
     - if !current_user.watchlist.find_by(movie_id: @movie.id)
       = button_to 'Add to watchlist', "/users/#{current_user.id}/watchlist/#{@movie.id}", method: :post, class: 'btn btn-primary'
     - else
