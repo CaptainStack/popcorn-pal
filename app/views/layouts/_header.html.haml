@@ -1,7 +1,7 @@
 - if current_user
   %header.navbar{style:'height: 50px'}
     %div.container
-      = link_to "PopcornPalpatine", root_path, class: "navbar-brand"
+      = link_to "PopcornPal", root_path, class: "navbar-brand"
       %ul.nav.navbar-nav.navbar-form#header-search
         %li.form-group.has-feedback
           %input.form.typeahead{ type:"text", placeholder:"Search movies" }
@@ -19,7 +19,7 @@
 - else
   %header.navbar{style:'height: 60px'}
     %div.container
-      = link_to "PopcornPalpatine", root_path, class: "navbar-brand"
+      = link_to "PopcornPal", root_path, class: "navbar-brand"
       = form_tag session_path(:user), class: 'navbar-form navbar-login' do
         %ul.nav.navbar-nav.navbar-right
           %li
