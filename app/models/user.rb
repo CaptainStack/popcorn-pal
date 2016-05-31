@@ -15,6 +15,6 @@ class User < ActiveRecord::Base
   end
 
   def has_seen?(movie)
-    return self.user_movies.where("movie_id = ? and seen = ?", movie.id, true).length > 0
+    self.user_movies.where("movie_id = ? and seen = ?", movie.id, true).length > 0
   end
 end
