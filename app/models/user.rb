@@ -13,4 +13,8 @@ class User < ActiveRecord::Base
   def watchlist
     self.user_movies.where(on_watchlist: true)
   end
+
+  def has_seen?(movie)
+    return self.user_movies.where("movie_id = ? and seen = ?", movie.id, true).length > 0
+  end
 end
