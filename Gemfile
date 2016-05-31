@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.5.2'
+gem 'rails', '5.0.0.rc1'
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'uglifier', '>= 1.3.0'
@@ -11,9 +11,9 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'haml-rails'
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'devise'
+gem "devise", '4.1.1'
 gem 'omniauth-facebook'
-gem 'pundit'
+gem 'pundit', '1.1.0'
 gem 'rolify'
 gem 'rails_serve_static_assets'
 gem 'rails_stdout_logging'
@@ -22,7 +22,7 @@ gem 'themoviedb'
 gem 'pg'
   
 group :development do
-  gem 'web-console', '~> 2.0'
+  gem 'web-console', '3.1.1'
 end
 
 group :development, :test do
